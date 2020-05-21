@@ -9,7 +9,7 @@ let app = express();
 
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ strict: false, extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common'));
 
 app.use(require('./routes'));

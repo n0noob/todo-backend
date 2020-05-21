@@ -36,8 +36,13 @@ router.post('/', (req, res, next) => {
 });
 
 router.delete('/:id', (req, res, next) => {
-  console.log(req.params.id);
-  res.sendStatus(200);
+  console.log('Got the request ' + req.params.id);
+
+  TodoItem.findByIdAndRemove(req.params.id, (err, todoItem) => {
+    if(err)
+      return next(err);
+    return res.status(204).send(`Deleted record with id : ${req.params.id}`);
+  });
 });
 
 
