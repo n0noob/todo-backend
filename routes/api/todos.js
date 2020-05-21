@@ -3,12 +3,22 @@ const router = require('express').Router();
 
 const TodoItem = mongoose.model('TodoItem');
 
+
 router.get('/:id', (req, res, next) => {
   console.log('Got the request ' + req.params.id);
   TodoItem.findById(req.params.id).then((todoItem) => {
     if(!todoItem)
-      res.sendStatus(401);
+      res.sendStatus(404);
     return res.json({todoItem: todoItem});
+  }).catch(next);
+});
+
+router.get('/', (req, res, next) => {
+  console.log('Get all');
+  TodoItem.find({}, (err, itemList) => {
+    if(err)
+      res.sendStatus(404);
+    res.json(itemList);
   }).catch(next);
 });
 
@@ -23,6 +33,12 @@ router.post('/', (req, res, next) => {
   todoItem.save().then(() => {
     return res.json({todoItem: todoItem});
   }).catch(next);
-})
+});
+
+router.delete('/:id', (req, res, next) => {
+  console.log(req.params.id);
+  res.sendStatus(200);
+});
+
 
 module.exports = router;
