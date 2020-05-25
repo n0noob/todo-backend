@@ -19,6 +19,7 @@ router.get('/', (req, res, next) => {
 
     console.log(todoSequence[0].sequence);
     todoSequenceObj = JSON.parse(todoSequence[0].sequence);
+    console.log("To be sent : " + todoSequenceObj);
     return res.json({"todoItemSequence": todoSequenceObj});
   })
 });

@@ -4,8 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon $npm_package_main",
-    "start": "node $npm_package_main",
+    "start": "nodemon $npm_package_main",
     "test": ""
   },
   "author": "",
@@ -15,6 +14,7 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "mongoose": "^5.9.14",
