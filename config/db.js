@@ -50,3 +50,4 @@ process.on('SIGTERM', () => {
 //Models
 //require('../models/locations')
 require('../models/todo-item');
+require('../models/todo-item-sequence');
